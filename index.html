@@ -3,137 +3,217 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Web Course</title>
+    <link rel="stylesheet" href="styles.css">
+    <title>Unity Insurance</title>
     <style>
-        *{
-            
-        }
-        body, h1, p {
-            margin: 0;
-            padding: 0;
-        }
+        /* Reset some default browser styles */
+body, h1, h2, p, ul, li, a {
+    margin: 0;
+    padding: 0;
+}
 
-        body {
-            background-size: cover;
-            font-family: Arial, sans-serif;
-            background-color: #6b490b;
-            color: #ffffff;
-            line-height: 1.6;
-           
-            padding-right: 40;
-        }
+/* Global Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+}
 
-        .header {
-            margin: 0;
-            padding: 0;
-            height: 30px;
-            background-image: none;
-            background-color:  #000000;
-            color: #ffffff;
-            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-            padding: 20px;
-        }
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding-right: 150px;            
-            background-color: #ef9937;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
 
-        #header1 {
-            font-size: 36px;
-            margin-bottom: 20px;
-        }
-        #head2 {
-            text-align: center;
-            color: #ffffff;
-            font-size: 40x;
-            font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif ;
-        }
-        #but4{
-            background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Telegram_2019_Logo.svg/800px-Telegram_2019_Logo.svg.png);
-        }
+/* Header Styles */
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 0;
+}
 
-        p {
-            font-size: 25px;
-            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-            text-align: center;
-            color: #ffffff;
-        }
-        #but1{
-            background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Instagram_logo_2016.svg/768px-Instagram_logo_2016.svg.png);
-        }
-        #but2{
-            background-image: url(data:image/jpeg;base64,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);
-        }
-        #but3{
-            background-image: url(https://png.pngtree.com/png-vector/20221018/ourmid/pngtree-youtube-social-media-round-icon-png-image_6315993.png);
-        }
-        .button {
-            background-image:url() ;
-            background-size: cover;
-        background-position-x: center;            
-        display: inline-block;
-            padding: 10px 20px;
-            margin: 0px;
-            color: #faf8bb;
-            text-decoration: none;
-            text-align: center;
-            height: 250px;
-            width: 21%;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        footer{
-            background-color: #464600;
-            color: #f4f4f4;
-            text-align: center;
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 
-        }
-        .img{
-            width: 100%;
-            height: 300px;
-        }
-        #head1{
-            margin-bottom: 50px;
-            font-weight: 500;
-            font-size: 40px;
-            height: max-content;
-            margin-right: 50%;
-        }
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+}
 
-        
+nav ul {
+    list-style-type: none;
+    display: flex;
+}
+
+nav ul li {
+    margin-right: 20px;
+}
+
+nav ul li:last-child {
+    margin-right: 0;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: #f7b731;
+}
+
+/* Hero Section Styles */
+.hero {
+    background-image: url(https://holbornassets.com/wp-content/uploads/2022/03/life-insurance-in-different-stages-of-life.png);
+    background-position: center;
+    background-size: 90%  ;
+    text-align: center;
+    color: white;
+    padding: 100px 0;
+}
+
+.hero h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #f7b731;
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.cta-button:hover {
+    background-color: #e58e26;
+}
+
+/* About Section Styles */
+.about {
+    background-color: #fff;
+    padding: 50px 0;
+    text-align: center;
+}
+
+.about h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+/* Services Section Styles */
+.services {
+    background-color: #f4f4f4;
+    padding: 50px 0;
+    text-align: center;
+    width: 50%;
+    margin-left: 26%;
+    background-image: url(https://media.istockphoto.com/id/1283692332/photo/signing-up-for-a-secure-future.jpg?s=612x612&w=0&k=20&c=FEvDcdO8PORvz5Ks3o0CrP0iBp1osomIrmfKTTM_9RM=);
+color: rgb(255, 255, 255);}
+
+.services h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.services ul {
+    list-style-type: none;
+}
+
+.services li {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+/* Contact Section Styles */
+.contact {
+    padding: 50px 0;
+    text-align: center;
+}
+
+.contact h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.contact a {
+    text-decoration: none;
+    color: #f7b731;
+    font-weight: bold;
+}
+.contact button:hover{
+    background-color: #e7dede;
+    height: 30px;
+    width: 20%;
+transition: ;    border: none;}
+.contact a:hover {
+    text-decoration: underline;
+}
+
+/* Footer Styles */
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+}
+
     </style>
 </head>
 <body>
-        <p class="header">
-        <a id="head1">UNITY</a>
-        <a>Home</a>
-        <a>Services</a>
-        <a>contact</a>
-    </p>
-  
-    <img class="img" src="https://www.dfs.ny.gov/sites/default/files/styles/wide_lead/public/media/2019/01/istock-897545934_insurance_cos_cropped.jpg?itok=XlOeyjgt"
-
-    <div class="container">
-        <h2 id="head2">WHO WE ARE</h2>
-        <p>
-             A grop of people willing to protect us together in a cruel and expensive world. Our only goal is to protect and shelter your family from outside world that full of danger threat and accident. 
-        </p>
-
-        <h2> Reach us on</h2>
-        <p>
-            
-        </p>
-
-        <a href="https://www.instagram.com/" class="button" id="but1"></a>
-        <a href="https://twitter.com/" class="button" id="but2"></a>
-        <a href="https://youtube.com/" class="button" id="but3"></a>
-        <a href="" class="button" id="but4"></a>
-    </div>
-
-
+    <header>
+        <nav>
+            <div class="logo">Unity Insurance</div>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <section class="hero">
+        <h1>Welcome to Unity Insurance</h1>
+        <p>Your Trusted Insurance Partner</p>
+        <a href="#" class="cta-button">Get a Quote</a>
+    </section>
+    
+    <section class="about">
+        <h2>About Us</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eget mauris sed odio finibus tincidunt.</p>
+    </section>
+    
+    <section class="services">
+        <h2>Our Services</h2>
+        <ul>
+            <li>Auto Insurance</li>
+            <li>Home Insurance</li>
+            <li>Health Insurance</li>
+            <li>Life Insurance</li>
+        </ul>
+    </section>
+    
+    <section class="contact">
+        <h2>Contact Us</h2>
+        <p>If you have any questions or need assistance, feel free to <a href="mailto:info@unityinsurance.com">email us</a>.</p>
+    </section>
+    
+    <footer>
+        <p>&copy; 2023 Unity Insurance</p>
+    </footer>
 </body>
 </html>
